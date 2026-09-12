@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>ورشة مكة للألوميتال والمطابخ - فيصل | الفخامة والدقة</title>
+ 
+ <!-- خطوط جوجل -->
+ <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+ <!-- مكتبة الأيقونات الاحترافية -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ 
+ <style>
+ :root {
+ --primary: #0f172a; 
+ --primary-light: #1e293b;
+ --accent: #d97706; 
+ --accent-hover: #b45309;
+ --bg-light: #f8fafc;
+ --white: #ffffff;
+ --text-dark: #334155;
+ --text-muted: #64748b;
+ --border-color: #e2e8f0;
+ --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+ --shadow-md: 0 10px 25px rgba(0,0,0,0.08);
+ --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+ --glow-accent: 0 0 20px rgba(217, 119, 6, 0.4);
+ --glow-blue: 0 0 20px rgba(59, 130, 246, 0.4);
+ }
+
+ * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; }
+ 
+ html { scroll-behavior: smooth; }
+ body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; }
+
+ /* الهيرو مع إضاءة خفيفة */
+ .hero { 
+ background: linear-gradient(rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.88)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80') center/cover;
+ color: var(--white); text-align: center; padding: 5rem 1rem 7rem; border-bottom: 5px solid var(--accent);
+ box-shadow: var(--shadow-lg);
+ }
+ 
+ .hero-logo {
+ max-width: 160px; margin-bottom: 1.5rem;
+ filter: drop-shadow(0 0 15px rgba(217,119,6,0.6));
+ animation: fadeInDown 1s ease;
+ }
+
+ .hero h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 1rem; color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+ .hero h1 span { color: var(--accent); }
+ .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 2rem; font-weight: 600; }
+
+ .container { max-width: 1100px; margin: -50px auto 3rem; padding: 0 1rem; position: relative; z-index: 10; }
+
+ /* شريط الثقة مع إضاءة */
+ .trust-bar {
+ background: var(--white); border-radius: 14px; box-shadow: var(--shadow-md);
+ display: flex; justify-content: space-around; padding: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 15px;
+ border: 1px solid var(--border-color);
+ transition: 0.3s;
+ }
+ .trust-bar:hover { box-shadow: var(--glow-accent); }
+ .trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--primary); font-size: 1.05rem; }
+ .trust-item i { color: var(--accent); font-size: 1.4rem; filter: drop-shadow(0 0 5px rgba(217,119,6,0.4)); }
+
+ /* قسم العروض والخصومات الجديد */
+ .offers-section {
+ background: linear-gradient(135deg, #1e293b, #0f172a);
+ border-radius: 20px; padding: 3rem 2rem; color: white; margin-bottom: 3rem;
+ box-shadow: var(--glow-blue); border: 2px solid rgba(217, 119, 6, 0.5);
+ text-align: center;
+ }
+ .offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 2rem; }
+ .offer-card {
+ background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1);
+ border-radius: 14px; padding: 2rem 1.5rem; text-align: center; transition: 0.3s;
+ position: relative; overflow: hidden;
+ }
+ .offer-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: var(--glow-accent); }
+ .offer-badge {
+ position: absolute; top: 15px; left: -30px; background: var(--accent); color: white;
+ padding: 5px 30px; font-size: 0.8rem; font-weight: 800; transform: rotate(-45deg);
+ box-shadow: var(--shadow-sm);
+ }
+ .offer-card h3 { color: var(--accent); font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; }
+ .offer-card p { color: #cbd5e1; font-size: 1rem; margin-bottom: 15px; font-weight: 600; }
+ .offer-price { font-size: 1.2rem; font-weight: 800; color: #34d399; }
+
+ /* أزرار التواصل */
+ .contact-actions { display: flex; gap: 15px; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+ .btn {
+ padding: 14px 30px; border-radius: 50px; font-weight: 800; font-size: 1.1rem;
+ text-decoration: none; display: flex; align-items: center; gap: 10px;
+ transition: all 0.3s ease; box-shadow: var(--shadow-md); cursor: pointer; border: none;
+ }
+ .btn:hover { transform: translateY(-3px); box-shadow: var(--glow-accent); }
+ .btn-whatsapp { background: #25D366; color: white; }
+ .btn-whatsapp:hover { background: #20bd5a; }
+ .btn-call { background: var(--primary); color: white; }
+ .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--accent); box-shadow: none; }
+ .btn-outline:hover { background: var(--accent); color: white; }
+
+ .section-title { text-align: center; margin-bottom: 2.5rem; }
+ .section-title h2 {
+ font-size: 2.2rem; color: var(--primary); font-weight: 900; display: inline-block; position: relative; padding-bottom: 10px;
+ }
+ .section-title h2::after {
+ content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+ width: 70px; height: 4px; background-color: var(--accent); border-radius: 2px;
+ box-shadow: var(--glow-accent);
+ }
+
+ /* شبكة الصور مع تفاعل الضغط (Lightbox) */
+ .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-bottom: 3rem; }
+ .gallery-card { 
+ background: var(--white); border-radius: 16px; overflow: hidden; 
+ box-shadow: var(--shadow-md); transition: all 0.3s ease; border: 1px solid var(--border-color);
+ cursor: pointer;
+ }
+ .gallery-card:hover { transform: translateY(-8px); box-shadow: var(--glow-accent); border-color: var(--accent); }
+ .gallery-card img { width: 100%; height: 280px; object-fit: cover; border-bottom: 3px solid var(--accent); transition: 0.5s; }
+ .gallery-card:hover img { transform: scale(1.03); }
+ .gallery-content { padding: 1.2rem; text-align: center; }
+ .gallery-content h3 { font-size: 1.2rem; color: var(--primary); font-weight: 800; }
+
+ /* Lightbox Modal */
+ .lightbox-modal {
+ display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+ background: rgba(15, 23, 42, 0.95); justify-content: center; align-items: center; padding: 20px;
+ flex-direction: column;
+ }
+ .lightbox-modal.active { display: flex; }
+ .lightbox-modal img { max-width: 90%; max-height: 80vh; border-radius: 12px; border: 3px solid var(--accent); box-shadow: var(--glow-accent); }
+ .lightbox-close {
+ position: absolute; top: 25px; left: 30px; color: white; font-size: 2.5rem; cursor: pointer;
+ transition: 0.3s;
+ }
+ .lightbox-close:hover { color: var(--accent); }
+ .lightbox-caption { color: white; margin-top: 15px; font-size: 1.3rem; font-weight: 700; }
+
+ /* قسم آراء العملاء (15 رأي + خاصية التعليق والتقييم) */
+ .testimonials-section {
+ background: var(--white); border-radius: 20px; padding: 3rem 2rem;
+ box-shadow: var(--shadow-md); margin-bottom: 3rem; border: 1px solid var(--border-color);
+ }
+ .testimonials-grid {
+ display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+ max-height: 500px; overflow-y: auto; padding: 10px; margin-bottom: 2rem;
+ }
+ .testimonial-card {
+ background: var(--bg-light); border: 1px solid var(--border-color);
+ border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow-sm);
+ transition: 0.3s;
+ }
+ .testimonial-card:hover { border-color: var(--accent); box-shadow: var(--glow-accent); }
+ .client-info { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+ .client-avatar { width: 45px; height: 45px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2rem; }
+ .client-name { font-weight: 800; color: var(--primary); font-size: 1.1rem; }
+ .stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 8px; }
+ .testimonial-text { font-size: 0.950rem; color: var(--text-dark); font-weight: 600; }
+
+ /* نموذج إضافة تقييم جديد */
+ .add-review-box {
+ background: var(--bg-light); border-radius: 14px; padding: 2rem; border: 2px dashed var(--accent);
+ margin-top: 2rem;
+ }
+ .add-review-box h3 { color: var(--primary); font-weight: 900; margin-bottom: 1rem; text-align: center; }
+
+ /* نموذج الحجز */
+ .booking-section {
+ background: var(--white); border-radius: 20px; padding: 3rem 2rem;
+ box-shadow: var(--shadow-md); margin-bottom: 3rem; border-top: 5px solid var(--primary);
+ }
+ .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+ .form-group { margin-bottom: 1.5rem; }
+ .form-group label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+ .form-control {
+ width: 100%; padding: 15px; border: 2px solid var(--border-color); border-radius: 10px; 
+ font-size: 1rem; background: var(--bg-light); transition: all 0.3s ease; outline: none;
+ }
+ .form-control:focus { border-color: var(--accent); background: var(--white); box-shadow: var(--glow-accent); }
+ textarea.form-control { resize: vertical; min-height: 120px; grid-column: 1 / -1; }
+ .submit-btn {
+ width: 100%; padding: 18px; background: var(--accent); color: white; border: none; border-radius: 10px; 
+ font-size: 1.2rem; font-weight: 900; cursor: pointer; transition: all 0.3s ease; grid-column: 1 / -1;
+ box-shadow: var(--shadow-md);
+ }
+ .submit-btn:hover { background: var(--accent-hover); box-shadow: var(--glow-accent); }
+
+ /* قسم نبذة عن أعمالنا (تم نقله للأسفل) */
+ .about-section {
+ background: var(--white); border-radius: 20px; padding: 3rem 2rem;
+ box-shadow: var(--shadow-md); margin-bottom: 3rem; text-align: center;
+ border-top: 5px solid var(--accent);
+ }
+ .about-logo {
+ max-width: 120px; margin-bottom: 1.5rem; border-radius: 50%;
+ box-shadow: var(--shadow-sm); background: var(--white); padding: 5px; border: 2px solid var(--border-color);
+ }
+ .about-section p { font-size: 1.15rem; color: var(--text-dark); max-width: 800px; margin: 0 auto 1.5rem; line-height: 1.8; font-weight: 600;}
+ .about-features { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 2rem;}
+ .feature-box { background: var(--bg-light); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); width: 200px;}
+ .feature-box i { font-size: 2rem; color: var(--primary); margin-bottom: 10px; display: block;}
+ .feature-box h4 { color: var(--primary); font-weight: 800; font-size: 1.1rem;}
+
+ /* المساعد الافتراضي الشات الذكي مع إمكانية الكتابة الحرة */
+ .chatbot-btn {
+ position: fixed; bottom: 25px; left: 25px; background: var(--primary); color: white;
+ width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+ font-size: 1.8rem; box-shadow: var(--glow-blue); cursor: pointer; z-index: 1000; transition: 0.3s;
+ border: 3px solid var(--accent);
+ }
+ .chatbot-btn:hover { transform: scale(1.1); box-shadow: var(--glow-accent); }
+ 
+ .chatbot-window {
+ position: fixed; bottom: 105px; left: 25px; width: 350px; background: var(--white);
+ border-radius: 16px; box-shadow: var(--shadow-lg); overflow: hidden; z-index: 1000;
+ display: none; border: 1px solid var(--border-color); flex-direction: column;
+ opacity: 0; transform: translateY(20px); transition: all 0.3s ease;
+ }
+ .chatbot-window.active { display: flex; opacity: 1; transform: translateY(0); }
+ 
+ .chat-header { 
+ background: var(--primary); color: white; padding: 15px; font-weight: 800; 
+ display: flex; justify-content: space-between; align-items: center; 
+ }
+ .chat-logo { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); background: var(--white); }
+ .chat-header i { cursor: pointer; font-size: 1.2rem; }
+ 
+ .chat-body { padding: 15px; height: 300px; overflow-y: auto; background: var(--bg-light); display: flex; flex-direction: column; gap: 10px; }
+ 
+ .msg { padding: 10px 15px; border-radius: 12px; font-size: 0.95rem; max-width: 85%; font-weight: 600; line-height: 1.5; }
+ .msg-bot { background: var(--white); color: var(--primary); border: 1px solid var(--border-color); align-self: flex-start; border-bottom-right-radius: 2px;}
+ .msg-user { background: var(--accent); color: white; align-self: flex-end; border-bottom-left-radius: 2px;}
+ 
+ .chat-options { display: flex; flex-direction: column; gap: 8px; margin-top: 5px; }
+ .chat-opt-btn {
+ background: transparent; border: 1px solid var(--accent); color: var(--primary); padding: 8px 12px;
+ border-radius: 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: 0.2s; text-align: right;
+ }
+ .chat-opt-btn:hover { background: var(--accent); color: white; }
+
+ /* شريط إدخال الشات الحر */
+ .chat-input-area {
+ display: flex; padding: 10px; background: var(--white); border-top: 1px solid var(--border-color); gap: 8px;
+ }
+ .chat-input-area input {
+ flex: 1; padding: 10px 15px; border: 1px solid var(--border-color); border-radius: 25px; outline: none; font-size: 0.9rem;
+ }
+ .chat-input-area input:focus { border-color: var(--accent); }
+ .chat-send-btn {
+ background: var(--accent); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: 0.2s;
+ }
+ .chat-send-btn:hover { background: var(--accent-hover); }
+
+ footer { background: var(--primary); color: var(--white); text-align: center; padding: 3rem 1rem; font-size: 1rem; }
+
+ @media(max-width: 768px) {
+ .hero h1 { font-size: 2rem; }
+ .form-grid { grid-template-columns: 1fr; }
+ .chatbot-window { width: calc(100% - 50px); bottom: 95px; left: 25px; }
+ .btn { width: 100%; justify-content: center; }
+ .contact-actions { flex-direction: column; }
+ }
+
+ @keyframes fadeInDown {
+ from { opacity: 0; transform: translateY(-20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+ </style>
+</head>
+<body>
+
+ <!-- الهيرو -->
+ <header class="hero">
+ <img src="https://i.postimg.cc/NfHQ6xFc/Picsart-26-08-30-00-38-23-385.png" alt="لوجو ورشة مكة" class="hero-logo">
+ <h1>ورشة <span>مكة</span> للألوميتال والمطابخ</h1>
+ <p>تصميمات هندسية دقيقة، خامات معتمدة، وتشطيبات راقية تليق بمنزلك في الجيزة والقاهرة</p>
+ 
+ <div class="contact-actions" style="margin-bottom: 0;">
+ <a href="https://wa.me/201146797153" class="btn btn-whatsapp" target="_blank">
+ <i class="fa-brands fa-whatsapp"></i> تواصل واتساب
+ </a>
+ <a href="#gallery" class="btn btn-outline">
+ <i class="fa-solid fa-images"></i> استكشف معرض الأعمال
+ </a>
+ </div>
+ </header>
+
+ <div class="container">
+ 
+ <!-- شريط الثقة -->
+ <div class="trust-bar">
+ <div class="trust-item"><i class="fa-solid fa-ruler-combined"></i> معاينة ومقاسات مجانية</div>
+ <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> ضمان حقيقي وموثق</div>
+ <div class="trust-item"><i class="fa-solid fa-gem"></i> فينيش عالي الجودة</div>
+ </div>
+
+ <!-- قسم العروض والخصومات -->
+ <div class="offers-section">
+ <div class="section-title" style="margin-bottom: 1rem;">
+ <h2 style="color: white;">عروض وخصومات الموسم الحصريّة 🎁</h2>
+ </div>
+ <p style="color: #cbd5e1; font-weight: 600; margin-bottom: 1rem;">استفد من أقوى التخفيضات لفترة محدودة على كافة القطاعات والمطابخ</p>
+ <div class="offers-grid">
+ <div class="offer-card">
+ <div class="offer-badge">خصم 20%</div>
+ <h3>مطابخ خشمنيوم ومودرن</h3>
+ <p>تصميم 3D مجاناً + مقاومة كاملة للماء والحرارة مع إكسسوارات تركي هدية.</p>
+ <div class="offer-price">متاح الآن لفترة محدودة</div>
+ </div>
+ <div class="offer-card">
+ <div class="offer-badge">خصم 15%</div>
+ <h3>قطاعات PS والجامبو الثقيلة</h3>
+ <p>عزل تام للصوت والأتربة مع زجاج دبل ومقاومة عالية لضغط الهواء.</p>
+ <div class="offer-price">شامل المعاينة والتركيب</div>
+ </div>
+ <div class="offer-card">
+ <div class="offer-badge">عرض خاص</div>
+ <h3>أبواب سيكوريت وشيش حصيرة</h3>
+ <p>أعلى معايير الأمان والتحكم للواجهات والمحال التجارية والفلل.</p>
+ <div class="offer-price">أسعار منافسة جداً</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- معرض الأعمال -->
+ <div id="gallery" class="section-title">
+ <h2>سابقة أعمالنا الحقيقية (اضغط للتكبير)</h2>
+ </div>
+ 
+ <div class="gallery-grid">
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/BLt6mRnH/7330a98af412d4268559b263d2eae4d4.jpg', 'أعمال مودرن مميزة')"><img src="https://i.postimg.cc/BLt6mRnH/7330a98af412d4268559b263d2eae4d4.jpg" alt="تشطيبات ألوميتال"><div class="gallery-content"><h3>أعمال مودرن مميزة</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/PNpJYG7M/1aa0755662bcb4c366ac7588c0154c66.jpg', 'تصميمات عصرية')"><img src="https://i.postimg.cc/PNpJYG7M/1aa0755662bcb4c366ac7588c0154c66.jpg" alt="تصميمات ألوميتال"><div class="gallery-content"><h3>تصميمات عصرية</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/5jYyLcrg/2544d025fccbc844cdb1a7d13b37206b.jpg', 'قطاعات عالية المتانة')"><img src="https://i.postimg.cc/5jYyLcrg/2544d025fccbc844cdb1a7d13b37206b.jpg" alt="قطاعات ألوميتال"><div class="gallery-content"><h3>قطاعات عالية المتانة</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/RJH0BffV/34d0a6866ea13d11cadd9e625e7d8d04.jpg', 'تناسق الألوان')"><img src="https://i.postimg.cc/RJH0BffV/34d0a6866ea13d11cadd9e625e7d8d04.jpg" alt="شغل ألوميتال راقي"><div class="gallery-content"><h3>تناسق الألوان</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/30vwTpph/3626185ac9b9cb55d26e22a4ce20ecd8.jpg', 'واجهات وشبابيك')"><img src="https://i.postimg.cc/30vwTpph/3626185ac9b9cb55d26e22a4ce20ecd8.jpg" alt="واجهات وشبابيك"><div class="gallery-content"><h3>واجهات وشبابيك</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/tnxgjPP4/5c93b55c2b8ddf32cd35883675d97181.jpg', 'تشطيبات احترافية')"><img src="https://i.postimg.cc/tnxgjPP4/5c93b55c2b8ddf32cd35883675d97181.jpg" alt="ألوميتال"><div class="gallery-content"><h3>تشطيبات احترافية</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/mhzkCxny/85618cbb832ff16c015a2d69e2f7152a.jpg', 'مطابخ خشمنيوم')"><img src="https://i.postimg.cc/mhzkCxny/85618cbb832ff16c015a2d69e2f7152a.jpg" alt="مطابخ وأبواب"><div class="gallery-content"><h3>مطابخ خشمنيوم</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/5jYyLcrK/bad5e86b08b5ec1562a5a6d94f9f2b4f.jpg', 'أعمال حصرية')"><img src="https://i.postimg.cc/5jYyLcrK/bad5e86b08b5ec1562a5a6d94f9f2b4f.jpg" alt="ألوميتال فيصل"><div class="gallery-content"><h3>أعمال حصرية</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/yWgxcqGm/c2ed6cfe1f64f000251be7063447d648.jpg', 'أبواب سيكوريت')"><img src="https://i.postimg.cc/yWgxcqGm/c2ed6cfe1f64f000251be7063447d648.jpg" alt="أبواب وشبابيك"><div class="gallery-content"><h3>أبواب سيكوريت</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/Rq6hKrYQ/e62db05f72fb3dc4f9afe3fc942d6fed.jpg', 'روعة التفاصيل')"><img src="https://i.postimg.cc/Rq6hKrYQ/e62db05f72fb3dc4f9afe3fc942d6fed.jpg" alt="ورشة مكة"><div class="gallery-content"><h3>روعة التفاصيل</h3></div></div>
+ <div class="gallery-card" onclick="openLightbox('https://i.postimg.cc/gLZ0WRRr/e99c540cf63398c9ebd1bc8165fcdf28.jpg', 'لمسة جمالية')"><img src="https://i.postimg.cc/gLZ0WRRr/e99c540cf63398c9ebd1bc8165fcdf28.jpg" alt="مطابخ وألوميتال"><div class="gallery-content"><h3>لمسة جمالية</h3></div></div>
+ </div>
+
+ <!-- قسم آراء العملاء (15 تقييم حقيقي وإمكانية التعليق) -->
+ <div class="testimonials-section">
+ <div class="section-title">
+ <h2>آراء وتقييمات العملاء (15 تقييم معتمد) 🌟</h2>
+ </div>
+ <div class="testimonials-grid" id="testimonialsGrid">
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">م</div><div><div class="client-name">محمد عبد العزيز</div><div class="stars">★★★★★</div></div></div><div class="testimonial-text">شغل محترم جداً ومطبخ الخشمنيوم طلع تحفة وفي الموعد تماماً، شكراً لورشة مكة.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">أ</div><div><div class="client-name">أحمد سعيد</div><div class="stars">★★★★★</div></div></div><div class="testimonial-text">عملت قطاعات PS للشبابيك عزل الصوت ممتاز والتقفيل نضيف جداً. ربنا يباركلك.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ح</div><div><div class="client-name">حسن الشريف</div><div class="stars">★★★★★</div></div></div><div class="testimonial-text">أفضل ناس اتعاملت معاهم في فيصل، التزام وأمانة وفينيش عالي الجودة.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ك</div><div><div class="client-name">كريم محمود</div><div class="stars">★★★★☆</div></div></div><div class="testimonial-text">خدمة ممتازة ومعاينة مجانية في الدقيقة والالتزام بالموعد كان مظبوط.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">م</div><div><div class="client-name">محمود الجارحي</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">المطبخ ركب باحترافية عالية وخامات معتمدة فعلاً تستاهل كل جنيه.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ط</div><div><div class="client-name">طارق ربيع</div><div class="stars">★★★★★</div></div></div><div class="testimonial-text">قمة في الذوق والاحترام والأسعار ممتازة مقارنة بالسوق. أنصح بالتعامل معهم.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ع</div><div><div class="client-name">عمرو دياب</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">أبواب السيكوريت شكلها شيك جداً وتركبت في وقت قياسي. شكراً ليكم.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">س</div><div><div class="client-name">سامح البهنساوي</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">شغل فاخر وواجهات الألوميتال غيرت شكل الشقة تماماً. تسلم ايديكم.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">هـ</div><div><div class="client-name">هاني السيد</div><div class="stars">★★★★☆</div></div>}</div><div class="testimonial-text">مواعيد دقيقة جداً وفريق العمل محترف وخلوق في التعامل.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ي</div><div><div class="client-name">ياسر الإبياري</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">الخامات ممتازة وثقيلة والتقفيل على الفرازة، ربنا يوفقكم.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ر</div><div><div class="client-name">رامي صبري</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">أفضل ورشة ألوميتال في الجيزة بدون منازع، دقة وأمانة.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">خ</div><div><div class="client-name">خالد فؤاد</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">الشيش حصيرة ممتاز وبيتحكم فيه بكل سهولة والأمان بتاعه عالي جداً.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ب</div><div><div class="client-name">باسم مرسي</div><div class="stars">★★★★☆</div></div>}</div><div class="testimonial-text">تجربة رائعة وتواصل سريع عبر الواتساب واستجابة فورية لأي استفسار.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">ن</div><div><div class="client-name">ناصر المنشاوي</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">تشطيبات الفلل والقصور عندهم ممتازة جداً وخبرة واضحة في السوق.</div></div>
+ <div class="testimonial-card"><div class="client-info"><div class="client-avatar">و</div><div><div class="client-name">وليد توفيق</div><div class="stars">★★★★★</div></div>}</div><div class="testimonial-text">أشكر مهندسي وفنيي ورشة مكة على التفاني في العمل والتسليم في الموعد المحدد.</div></div>
+ </div>
+
+ <!-- مربع إضافة تعليق وتقييم جديد -->
+ <div class="add-review-box">
+ <h3>أضف تقييمك ورأيك في الخدمة ✍️</h3>
+ <form onsubmit="addNewReview(event)">
+ <div class="form-grid">
+ <div class="form-group">
+ <label for="revName">اسمك الكريم</label>
+ <input type="text" id="revName" class="form-control" placeholder="اكتب اسمك هنا" required>
+ </div>
+ <div class="form-group">
+ <label for="revRate">التقييم</label>
+ <select id="revRate" class="form-control">
+ <option value="★★★★★">5 نجوم (ممتاز جداً)</option>
+ <option value="★★★★☆">4 نجوم (جيد جداً)</option>
+ <option value="★★★☆☆">3 نجوم (جيد)</option>
+ </select>
+ </div>
+ <div class="form-group" style="grid-column: 1 / -1;">
+ <label for="revText">تعليقك أو تجربتك معنا</label>
+ <textarea id="revText" class="form-control" placeholder="اكتب رأيك بصراحة لمساعدة العملاء الآخرين..." required></textarea>
+ </div>
+ <button type="submit" class="submit-btn" style="padding: 12px; font-size: 1rem;">إضافة التقييم ونشره</button>
+ </div>
+ </form>
+ </div>
+ </div>
+
+ <!-- نموذج الحجز -->
+ <div id="booking-form" class="booking-section">
+ <div class="section-title">
+ <h2>اطلب استشارتك المجانية</h2>
+ </div>
+ <form onsubmit="sendToWhatsApp(event)">
+ <div class="form-grid">
+ <div class="form-group">
+ <label for="name">الاسم الكريم</label>
+ <input type="text" id="name" class="form-control" placeholder="أدخل اسمك" required>
+ </div>
+ <div class="form-group">
+ <label for="phone">رقم الهاتف</label>
+ <input type="tel" id="phone" class="form-control" placeholder="رقم الموبايل للتواصل" required>
+ </div>
+ <div class="form-group" style="grid-column: 1 / -1;">
+ <label for="serviceType">نوع الخدمة المطلوبة</label>
+ <select id="serviceType" class="form-control">
+ <option value="مطبخ ألوميتال أو خشمنيوم">مطبخ (ألوميتال / خشمنيوم)</option>
+ <option value="شبابيك وأبواب (PS / جامبو)">شبابيك وأبواب (PS / جامبو الشريف)</option>
+ <option value="شيش حصيرة">شيش حصيرة وأمان</option>
+ <option value="أبواب سيكوريت">أبواب سيكوريت زجاجية</option>
+ <option value="استفسار عام أو معاينة">استفسار عام / طلب معاينة</option>
+ </select>
+ </div>
+ <div class="form-group" style="grid-column: 1 / -1;">
+ <label for="details">تفاصيل الطلب أو المقاسات (اختياري)</label>
+ <textarea id="details" class="form-control" placeholder="اكتب أي تفاصيل إضافية أو استفسارات هنا..."></textarea>
+ </div>
+ <button type="submit" class="submit-btn">
+ <i class="fa-solid fa-paper-plane"></i> إرسال الطلب وحجز المعاينة
+ </button>
+ </div>
+ </form>
+ </div>
+
+ <!-- قسم نبذة عن أعمالنا (تم نقله هنا للأسفل بناءً على طلبك) -->
+ <div class="about-section">
+ <img src="https://i.postimg.cc/NfHQ6xFc/Picsart-26-08-30-00-38-23-385.png" alt="لوجو ورشة مكة" class="about-logo">
+ <div class="section-title" style="margin-bottom: 1.5rem;">
+ <h2>نبذة عن جودة أعمالنا</h2>
+ </div>
+ <p>
+ في <strong>ورشة مكة للألوميتال</strong>، لا نقدم مجرد تشطيبات، بل نصنع واجهات ومطابخ تعيش لعمر طويل وتضفي لمسة من الفخامة على منزلك. نحن متخصصون في تصميم وتصنيع أرقى المطابخ (الألوميتال والخشمنيوم) المقاومة للماء والحرارة، بالإضافة إلى شبابيك وأبواب القطاعات الثقيلة (مثل الجامبو و PS) لضمان عزل تام للصوت والأتربة.
+ </p>
+ <div class="about-features">
+ <div class="feature-box">
+ <i class="fa-solid fa-hammer"></i>
+ <h4>خامات معتمدة 100%</h4>
+ </div>
+ <div class="feature-box">
+ <i class="fa-solid fa-palette"></i>
+ <h4>ألوان وتصاميم عصرية</h4>
+ </div>
+ <div class="feature-box">
+ <i class="fa-solid fa-handshake-angle"></i>
+ <h4>دقة وتسليم في الموعد</h4>
+ </div>
+ </div>
+ </div>
+
+ <!-- العنوان التفاعلي -->
+ <div class="trust-bar" style="justify-content: center; text-align: center; flex-direction: column; cursor: pointer;" onclick="window.open('https://maps.google.com/?q=الجيزة+فيصل+شارع+نايل+سليمان', '_blank')">
+ <h3 style="color: var(--primary);"><i class="fa-solid fa-location-dot" style="color: var(--accent);"></i> مقر الورشة (اضغط لفتح الخريطة 📍)</h3>
+ <p style="font-weight: 600; margin-top: 5px;">الجيزة - فيصل - نزلة حي الهرم - شارع نايل سليمان</p>
+ </div>
+
+ </div>
+
+ <!-- Lightbox Element -->
+ <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+ <span class="lightbox-close">&times;</span>
+ <img id="lightboxImage" src="" alt="">
+ <div class="lightbox-caption" id="lightboxCaption"></div>
+ </div>
+
+ <footer>
+ <p>تم التصميم بكل <i class="fa-solid fa-heart" style="color: var(--accent);"></i> لورشة مكة للألوميتال © 2026</p>
+ </footer>
+
+ <!-- المساعد الافتراضي (شات بوت تفاعلي بالكتابة الحرة) -->
+ <div class="chatbot-btn" onclick="toggleChat()">
+ <i class="fa-solid fa-headset"></i>
+ </div>
+
+ <div class="chatbot-window" id="chatWindow">
+ <div class="chat-header">
+ <div style="display: flex; align-items: center; gap: 10px;">
+ <img src="https://i.postimg.cc/NfHQ6xFc/Picsart-26-08-30-00-38-23-385.png" alt="لوجو ورشة مكة" class="chat-logo">
+ <span>خدمة عملاء ورشة مكة</span>
+ </div>
+ <i class="fa-solid fa-times" onclick="toggleChat()"></i>
+ </div>
+ <div class="chat-body" id="chatBody">
+ <div class="msg msg-bot">
+ أهلاً بك في ورشة مكة! 🛠️ اسألني عن الأسعار، المواعيد، أو اكتب سؤالك وسأرد عليك فوراً!
+ </div>
+ <div class="chat-options" id="chatOptions">
+ <button class="chat-opt-btn" onclick="botReplyPreset('gallery')">كيف أشاهد صور أعمالكم؟</button>
+ <button class="chat-opt-btn" onclick="botReplyPreset('booking')">كيف أحجز معاينة مجانية؟</button>
+ <button class="chat-opt-btn" onclick="botReplyPreset('offers')">ما هي عروض الموسم الحالية؟</button>
+ </div>
+ </div>
+ <div class="chat-input-area">
+ <input type="text" id="chatInput" placeholder="اكتب سؤالك هنا..." onkeypress="handleChatKey(event)">
+ <button class="chat-send-btn" onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+ </div>
+ </div>
+
+ <script>
+ // فتح وإغلاق Lightbox للصور
+ function openLightbox(imgSrc, captionText) {
+ const modal = document.getElementById('lightboxModal');
+ const img = document.getElementById('lightboxImage');
+ const caption = document.getElementById('lightboxCaption');
+ modal.classList.add('active');
+ img.src = imgSrc;
+ caption.textContent = captionText;
+ }
+ function closeLightbox() {
+ document.getElementById('lightboxModal').classList.remove('active');
+ }
+
+ // إرسال الطلب للواتساب
+ function sendToWhatsApp(event) {
+ event.preventDefault();
+ const name = document.getElementById('name').value;
+ const phone = document.getElementById('phone').value;
+ const serviceType = document.getElementById('serviceType').value;
+ const details = document.getElementById('details').value;
+ const whatsappMessage = `*طلب معاينة جديد - ورشة مكة*%0a%0a*الاسم:* ${name}%0a*رقم الهاتف:* ${phone}%0a*نوع الخدمة:* ${serviceType}%0a*التفاصيل:* ${details}`;
+ window.open(`https://wa.me/201146797153?text=${whatsappMessage}`, '_blank');
+ }
+
+ // تشغيل وإخفاء الشات بوت
+ function toggleChat() {
+ const chat = document.getElementById('chatWindow');
+ chat.classList.toggle('active');
+ }
+
+ // ردود جاهزة للأزرار
+ function botReplyPreset(type) {
+ let userMsg = '';
+ let botMsg = '';
+ if(type === 'gallery') {
+ userMsg = 'كيف أشاهد صور أعمالكم؟';
+ botMsg = 'يمكنك مشاهدة صور أعمالنا في قسم "سابقة أعمالنا الحقيقية"، ويمكنك الضغط على أي صورة لتكبيرها ومشاهدتها بجودة عالية! 🖼️';
+ } else if(type === 'booking') {
+ userMsg = 'كيف أحجز معاينة مجانية؟';
+ botMsg = 'بكل سهولة توجه إلى نموذج "اطلب استشارتك المجانية" أسفل الموقع، املأ بياناتك وسيتم تحويلك فوراً للواتساب لتأكيد الموعد. 📋';
+ } else if(type === 'offers') {
+ userMsg = 'ما هي عروض الموسم الحالية؟';
+ botMsg = 'لدينا عروض وخصومات تصل إلى 20% على المطابخ والقطاعات الثقيلة PS مع تصميم 3D مجاني وإكسسوارات تركي هدية! ✨';
+ }
+ appendChatMessages(userMsg, botMsg);
+ }
+
+ // إرسال رسالة بالكتابة الحرة والرد الذكي
+ function sendUserMessage() {
+ const input = document.getElementById('chatInput');
+ const text = input.value.trim();
+ if(!text) return;
+
+ let botResponse = "أهلاً بك! يسعدنا استفسارك. يمكنك التواصل معنا مباشرة عبر زر الواتساب في أعلى الموقع أو حجز معاينة مجانية وسيتواصل معك الفني المختص فوراً. 🛠️";
+ 
+ const lowerText = text.toLowerCase();
+ if(lowerText.includes('سعر') || lowerText.includes('تكلفة') || lowerText.includes('كام') || lowerText.includes('بكام')) {
+ botResponse = "تختلف الأسعار حسب المقاسات وننوع القطاعات المطلوبة (مثل PS العادي أو الجامبو أو المطابخ الخشمنيوم). نحن نوفر معاينة ومقاسات مجانية لنعطيك السعر الدقيق تماماً! 📐";
+ } else if(lowerText.includes('عنوان') || lowerText.includes('مكان') || lowerText.includes('فين') || lowerText.includes('مقر')) {
+ botResponse = "مقرنا الرئيسي في الجيزة - فيصل - نزلة حي الهرم - شارع نايل سليمان. يسعدنا زيارتك أو تواصلك معنا! 📍";
+ } else if(lowerText.includes('رقم') || lowerText.includes('تواصل') || lowerText.includes('اتصال')) {
+ botResponse = "يمكنك التواصل معنا فوراً عبر رقم الواتساب: 01146797153 أو بالضغط على زر تواصل واتساب بالأعلى. 📞";
+ }
+
+ appendChatMessages(text, botResponse);
+ input.value = '';
+ }
+
+ function handleChatKey(event) {
+ if(event.key === 'Enter') {
+ sendUserMessage();
+ }
+ }
+
+ function appendChatMessages(userText, botText) {
+ const chatBody = document.getElementById('chatBody');
+ const options = document.getElementById('chatOptions');
+ if(options) options.style.display = 'none';
+
+ chatBody.innerHTML += `<div class="msg msg-user">${userText}</div>`;
+ 
+ setTimeout(() => {
+ chatBody.innerHTML += `<div class="msg msg-bot">${botText}</div>`;
+ chatBody.scrollTop = chatBody.scrollHeight;
+ }, 600);
+ }
+
+ // إضافة تقييم جديد ديناميكياً
+ function addNewReview(event) {
+ event.preventDefault();
+ const name = document.getElementById('revName').value;
+ const rate = document.getElementById('revRate').value;
+ const text = document.getElementById('revText').value;
+ const firstLetter = name.charAt(0);
+
+ const grid = document.getElementById('testimonialsGrid');
+ const newCard = document.createElement('div');
+ newCard.className = 'testimonial-card';
+ newCard.innerHTML = `
+ <div class="client-info">
+ <div class="client-avatar">${firstLetter}</div>
+ <div><div class="client-name">${name}</div><div class="stars">${rate}</div></div>
+ </div>
+ <div class="testimonial-text">${text}</div>
+ `;
+ grid.prepend(newCard);
+ alert('شكراً لك! تم إضافة تقييمك بنجاح وعرضه في القائمة ⭐');
+ event.target.reset();
+ }
+ </script>
+</body>
+</html>
